@@ -1,0 +1,32 @@
+{
+    "name": "railken/amethyst-notification-sender",
+    "keywords": ["laravel", "amethyst", "amethyst-notification-sender", "notification-sender"],
+    "license": "MIT",
+    "require": {
+        "php": ">=7.1",
+        "railken/amethyst-common": "0.1.*"
+    },
+    "require-dev": {
+        "phpstan/phpstan": "^0.10",
+        "phpunit/phpunit": "~7.0",
+        "orchestra/testbench": "3.6.*",
+        "friendsofphp/php-cs-fixer": "^2.8.1"
+    },
+    "autoload": {
+        "psr-4" : {
+            "Railken\\Amethyst\\" : "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": { 
+            "Railken\\Amethyst\\Tests\\": "tests/" 
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Railken\\Amethyst\\Providers\\NotificationSenderServiceProvider"
+            ]
+        }
+    }
+}
