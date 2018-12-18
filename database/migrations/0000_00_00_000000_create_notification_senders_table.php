@@ -16,6 +16,12 @@ class CreateNotificationSendersTable extends Migration
             $table->increments('id');
             $table->string('name')->unique();
             $table->text('description')->nullable();
+            $table->integer('data_builder_id')->unsigned()->nullable();
+            $table->foreign('data_builder_id')->references('id')->on(Config::get('amethyst.data-builder.data.data-builder.table'));
+            $table->string('target');
+            $table->text('title')->nullable();
+            $table->text('message')->nullable();
+            $table->text('options')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
