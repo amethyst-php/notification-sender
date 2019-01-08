@@ -1,6 +1,18 @@
 <?php
 
 return [
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | Base Notification
+    |--------------------------------------------------------------------------
+    |
+    | Here you can change class of the notification that will be used
+    |
+    */
+    'notification-class' => Railken\Amethyst\Notifications\BasicNotification::class,
+
     /*
     |--------------------------------------------------------------------------
     | Data

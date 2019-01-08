@@ -19,7 +19,7 @@ class NotificationSenderFaker extends Faker
         $bag->set('name', $faker->name);
         $bag->set('description', $faker->text);
         $bag->set('data_builder', DataBuilderFaker::make()->parameters()->set('data_builder.class_name', EmailSenderDataBuilder::class)->toArray());
-        $bag->set('target', '1');
+        $bag->set('targets', '1');
         $bag->set('title', $faker->name);
         $bag->set('message', $faker->text);
         $bag->set('options', 'error: false');

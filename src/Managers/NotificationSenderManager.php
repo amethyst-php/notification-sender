@@ -5,12 +5,13 @@ namespace Railken\Amethyst\Managers;
 use Illuminate\Support\Collection;
 use Railken\Amethyst\Common\ConfigurableManager;
 use Railken\Amethyst\Exceptions;
-use Railken\Amethyst\Jobs\NotificationSender\SendEmail;
+use Railken\Amethyst\Jobs\NotificationSender\SendNotification;
 use Railken\Amethyst\Models\DataBuilder;
 use Railken\Amethyst\Models\NotificationSender;
 use Railken\Bag;
 use Railken\Lem\Manager;
 use Railken\Lem\Result;
+use Railken\Template\Generators;
 
 class NotificationSenderManager extends Manager
 {
@@ -52,15 +53,17 @@ class NotificationSenderManager extends Manager
     {
         $parameters = $this->castParameters($parameters);
 
-        $tm = new TemplateManager();
+        $generator = new Generators\TextGenerator();
 
         $result = new Result();
 
         try {
             $bag = new Bag($parameters);
 
-            $bag->set('title', $tm->renderRaw('text/plain', strval($bag->get('title')), $data));
-            $bag->set('message', $tm->renderRaw('text/plain', strval($bag->get('message')), $data));
+            $bag->set('title', $generator->generateAndRender(strval($bag->get('title')), $data));
+            $bag->set('message', $generator->generateAndRender(strval($bag->get('message')), $data));
+            $bag->set('targets', $generator->generateAndRender(strval($bag->get('targets')), $data));
+            $bag->set('options', $generator->generateAndRender(strval($bag->get('options')), $data));
 
             $result->setResources(new Collection([$bag->toArray()]));
         } catch (\Twig_Error $e) {
