@@ -5,6 +5,7 @@ namespace Railken\Amethyst\Tests\Http\Admin;
 use Illuminate\Support\Facades\Foo;
 use Railken\Amethyst\Api\Support\Testing\TestableBaseTrait;
 use Railken\Amethyst\Fakers\NotificationSenderFaker;
+use Railken\Amethyst\Managers\NotificationSenderManager;
 use Railken\Amethyst\Tests\BaseTest;
 
 class NotificationSenderTest extends BaseTest
@@ -31,4 +32,33 @@ class NotificationSenderTest extends BaseTest
      * @var string
      */
     protected $route = 'admin.notification-sender';
+
+
+    public function testSend()
+    {
+        $manager = new NotificationSenderManager();
+        $result = $manager->create(NotificationSenderFaker::make()->parameters());
+        $this->assertEquals(1, $result->ok());
+
+        $resource = $result->getResource();
+        $response = $this->callAndTest('POST', route('admin.notification-sender.send', ['id' => $resource->id]), ['data' => ['name' => $resource->name]], 200);
+    }
+
+    public function testRender()
+    {
+        $manager = new NotificationSenderManager();
+        $result = $manager->create(NotificationSenderFaker::make()->parameters());
+        $this->assertEquals(1, $result->ok());
+        $resource = $result->getResource();
+
+        $response = $this->callAndTest('post', route('admin.notification-sender.render'), [
+            'data_builder_id' => $resource->data_builder->id,
+            'targets'         => '1',
+            'message'         => '{{ name }}',
+            'options'         => 'error: false',
+            'data'            => ['name' => 'ban'],
+        ], 200);
+
+        $this->assertEquals('ban', base64_decode(json_decode($response->getContent())->resource->message));
+    }
 }

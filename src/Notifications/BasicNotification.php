@@ -8,6 +8,7 @@ use Illuminate\Notifications\Notification as IlluminateNotification;
 class BasicNotification extends IlluminateNotification implements ShouldQueue
 {
     use Queueable;
+    use \Illuminate\Queue\SerializesModels;
 
     public $title;
     public $message;

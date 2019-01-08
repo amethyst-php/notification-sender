@@ -68,11 +68,9 @@ class SendNotification implements ShouldQueue
 
         $bag = new Bag($result->getResource());
 
-        print_r($bag);
-
         $classTargets = Config::get('amethyst.notification.data.notification.user');
 
-        $targets = $classTargets::whereIn('id', (array) Yaml::parse($bag->get('targets')));
+        $targets = $classTargets::whereIn('id', (array) Yaml::parse($bag->get('targets')))->get();
 
         if (!$result->ok()) {
             return event(new NotificationFailed($notification, $result->getErrors()[0], $this->agent));
