@@ -17,7 +17,7 @@ class NotificationSent
      * Create a new event instance.
      *
      * @param \Railken\Amethyst\Models\NotificationSender $notification
-     * @param \Railken\Lem\Contracts\AgentContract $agent
+     * @param \Railken\Lem\Contracts\AgentContract        $agent
      */
     public function __construct(NotificationSender $notification, AgentContract $agent = null)
     {

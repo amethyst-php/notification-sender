@@ -26,7 +26,7 @@ class NotificationSenderManager extends Manager
      * Send a notification..
      *
      * @param NotificationSender $notification
-     * @param array       $data
+     * @param array              $data
      *
      * @return \Railken\Lem\Contracts\ResultContract
      */
@@ -38,7 +38,6 @@ class NotificationSenderManager extends Manager
 
         return $result;
     }
-
 
     /**
      * Render a notification.

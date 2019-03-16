@@ -5,8 +5,8 @@ namespace Railken\Amethyst\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use Railken\Amethyst\Api\Http\Controllers\RestManagerController;
 use Railken\Amethyst\Api\Http\Controllers\Traits as RestTraits;
-use Railken\Amethyst\Managers\NotificationSenderManager;
 use Railken\Amethyst\Managers\DataBuilderManager;
+use Railken\Amethyst\Managers\NotificationSenderManager;
 use Symfony\Component\HttpFoundation\Response;
 
 class NotificationSendersController extends RestManagerController
@@ -23,7 +23,6 @@ class NotificationSendersController extends RestManagerController
      * @var string
      */
     public $class = NotificationSenderManager::class;
-
 
     /**
      * Generate.
@@ -54,7 +53,6 @@ class NotificationSendersController extends RestManagerController
         return $this->success([]);
     }
 
-    
     /**
      * Render raw template.
      *
@@ -90,7 +88,7 @@ class NotificationSendersController extends RestManagerController
             $result = $manager->render(
                 $data_builder,
                 [
-                    'title' => strval($request->input('title')),
+                    'title'   => strval($request->input('title')),
                     'message' => strval($request->input('message')),
                     'targets' => strval($request->input('targets')),
                     'options' => strval($request->input('options')),
@@ -107,10 +105,9 @@ class NotificationSendersController extends RestManagerController
 
         return $this->success(['resource' => [
             'title'    => base64_encode($resource['title']),
-            'message' => base64_encode($resource['message']),
-            'targets' => strval($request->input('targets')),
-            'options' => base64_encode($resource['options'])
+            'message'  => base64_encode($resource['message']),
+            'targets'  => strval($request->input('targets')),
+            'options'  => base64_encode($resource['options']),
         ]]);
     }
-
 }

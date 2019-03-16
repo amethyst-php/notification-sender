@@ -19,8 +19,8 @@ class NotificationFailed
      * Create a new event instance.
      *
      * @param \Railken\Amethyst\Models\NotificationSender $notification
-     * @param \Exception                           $exception
-     * @param \Railken\Lem\Contracts\AgentContract $agent
+     * @param \Exception                                  $exception
+     * @param \Railken\Lem\Contracts\AgentContract        $agent
      */
     public function __construct(NotificationSender $notification, Exception $exception, AgentContract $agent = null)
     {

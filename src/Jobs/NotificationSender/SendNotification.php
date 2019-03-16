@@ -7,7 +7,8 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Notification;
 use Railken\Amethyst\Events\NotificationSender\NotificationFailed;
 use Railken\Amethyst\Events\NotificationSender\NotificationSent;
 use Railken\Amethyst\Managers\DataBuilderManager;
@@ -16,8 +17,6 @@ use Railken\Amethyst\Models\NotificationSender;
 use Railken\Bag;
 use Railken\Lem\Contracts\AgentContract;
 use Symfony\Component\Yaml\Yaml;
-use Illuminate\Support\Facades\Config;
-use Illuminate\Support\Facades\Notification;
 
 class SendNotification implements ShouldQueue
 {
@@ -30,15 +29,15 @@ class SendNotification implements ShouldQueue
     /**
      * Create a new job instance.
      *
-     * @param NotificationSender                          $notification
+     * @param NotificationSender                   $notification
      * @param array                                $data
      * @param \Railken\Lem\Contracts\AgentContract $agent
      */
     public function __construct(NotificationSender $notification, array $data = [], AgentContract $agent = null)
     {
         $this->notification = $notification;
-        $this->data = $data;
-        $this->agent = $agent;
+        $this->data         = $data;
+        $this->agent        = $agent;
     }
 
     /**
@@ -46,7 +45,7 @@ class SendNotification implements ShouldQueue
      */
     public function handle()
     {
-        $data = $this->data;
+        $data         = $this->data;
         $notification = $this->notification;
 
         $esm = new NotificationSenderManager();
@@ -58,12 +57,12 @@ class SendNotification implements ShouldQueue
             return event(new NotificationFailed($notification, $result->getErrors()[0], $this->agent));
         }
 
-        $data = $result->getResource();
+        $data   = $result->getResource();
         $result = $esm->render($notification->data_builder, [
-            'targets'     => $notification->targets,
+            'targets'      => $notification->targets,
             'title'        => $notification->title,
-            'message'     => $notification->message,
-            'options'     => $notification->options,
+            'message'      => $notification->message,
+            'options'      => $notification->options,
         ], $data);
 
         $bag = new Bag($result->getResource());
@@ -80,7 +79,7 @@ class SendNotification implements ShouldQueue
 
         $classNotification = Config::get('amethyst.notification-sender.notification-class');
 
-        Notification::send($targets, new $classNotification($bag->get('title'), $bag->get('message'),  (array) Yaml::parse($bag->get('options'))));
+        Notification::send($targets, new $classNotification($bag->get('title'), $bag->get('message'), (array) Yaml::parse($bag->get('options'))));
 
         event(new NotificationSent($notification, $this->agent));
     }

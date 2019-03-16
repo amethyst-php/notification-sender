@@ -1,4 +1,5 @@
 <?php
+
 namespace Railken\Amethyst\Notifications;
 
 use Illuminate\Bus\Queueable;
@@ -21,7 +22,7 @@ class BasicNotification extends IlluminateNotification implements ShouldQueue
      */
     public function __construct($title, $message, array $options = [])
     {
-        $this->title = $title;
+        $this->title   = $title;
         $this->message = $message;
         $this->options = $options;
     }
@@ -48,7 +49,7 @@ class BasicNotification extends IlluminateNotification implements ShouldQueue
     public function toArray($notifiable)
     {
         return [
-            'title'     => $this->title,
+            'title'       => $this->title,
             'message'     => $this->message,
             'options'     => $this->options,
         ];

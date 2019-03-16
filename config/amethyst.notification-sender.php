@@ -1,8 +1,6 @@
 <?php
 
 return [
-
-
     /*
     |--------------------------------------------------------------------------
     | Base Notification
@@ -31,8 +29,8 @@ return [
             'serializer' => Railken\Amethyst\Serializers\NotificationSenderSerializer::class,
             'validator'  => Railken\Amethyst\Validators\NotificationSenderValidator::class,
             'authorizer' => Railken\Amethyst\Authorizers\NotificationSenderAuthorizer::class,
-            'faker'      => Railken\Amethyst\Authorizers\NotificationSenderFaker::class,
-            'manager'    => Railken\Amethyst\Authorizers\NotificationSenderManager::class,
+            'faker'      => Railken\Amethyst\Fakers\NotificationSenderFaker::class,
+            'manager'    => Railken\Amethyst\Managers\NotificationSenderManager::class,
         ],
     ],
 

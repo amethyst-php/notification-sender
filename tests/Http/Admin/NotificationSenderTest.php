@@ -2,7 +2,6 @@
 
 namespace Railken\Amethyst\Tests\Http\Admin;
 
-use Illuminate\Support\Facades\Foo;
 use Railken\Amethyst\Api\Support\Testing\TestableBaseTrait;
 use Railken\Amethyst\Fakers\NotificationSenderFaker;
 use Railken\Amethyst\Managers\NotificationSenderManager;
@@ -33,11 +32,10 @@ class NotificationSenderTest extends BaseTest
      */
     protected $route = 'admin.notification-sender';
 
-
     public function testSend()
     {
         $manager = new NotificationSenderManager();
-        $result = $manager->create(NotificationSenderFaker::make()->parameters());
+        $result  = $manager->create(NotificationSenderFaker::make()->parameters());
         $this->assertEquals(1, $result->ok());
 
         $resource = $result->getResource();
@@ -47,7 +45,7 @@ class NotificationSenderTest extends BaseTest
     public function testRender()
     {
         $manager = new NotificationSenderManager();
-        $result = $manager->create(NotificationSenderFaker::make()->parameters());
+        $result  = $manager->create(NotificationSenderFaker::make()->parameters());
         $this->assertEquals(1, $result->ok());
         $resource = $result->getResource();
 
@@ -59,6 +57,6 @@ class NotificationSenderTest extends BaseTest
             'data'            => ['name' => 'ban'],
         ], 200);
 
-        $this->assertEquals('ban', base64_decode(json_decode($response->getContent())->resource->message));
+        $this->assertEquals('ban', base64_decode(json_decode($response->getContent())->resource->message, true));
     }
 }

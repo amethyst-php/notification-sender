@@ -4,8 +4,8 @@ namespace Railken\Amethyst\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Railken\Lem\Contracts\EntityContract;
 use Railken\Amethyst\Common\ConfigurableModel;
+use Railken\Lem\Contracts\EntityContract;
 
 class NotificationSender extends Model implements EntityContract
 {
@@ -20,7 +20,7 @@ class NotificationSender extends Model implements EntityContract
     {
         $this->ini('amethyst.notification-sender.data.notification-sender');
         parent::__construct($attributes);
-    }    
+    }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -29,5 +29,4 @@ class NotificationSender extends Model implements EntityContract
     {
         return $this->belongsTo(DataBuilder::class);
     }
-
 }

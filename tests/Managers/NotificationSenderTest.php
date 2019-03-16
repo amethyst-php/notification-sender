@@ -3,10 +3,10 @@
 namespace Railken\Amethyst\Tests\Managers;
 
 use Railken\Amethyst\Fakers\NotificationSenderFaker;
+use Railken\Amethyst\Managers\DataBuilderManager;
 use Railken\Amethyst\Managers\NotificationSenderManager;
 use Railken\Amethyst\Tests\BaseTest;
 use Railken\Lem\Support\Testing\TestableBaseTrait;
-use Railken\Amethyst\Managers\DataBuilderManager;
 
 class NotificationSenderTest extends BaseTest
 {
@@ -35,9 +35,9 @@ class NotificationSenderTest extends BaseTest
         $resource = $result->getResource();
 
         $result = $manager->send($resource, [
-            'name' => 'Bar'
+            'name' => 'Bar',
         ]);
-        
+
         $this->assertEquals(true, $result->ok());
     }
 
