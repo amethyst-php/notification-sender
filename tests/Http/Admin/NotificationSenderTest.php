@@ -35,7 +35,7 @@ class NotificationSenderTest extends BaseTest
     public function testSend()
     {
         $manager = new NotificationSenderManager();
-        $result  = $manager->create(NotificationSenderFaker::make()->parameters());
+        $result = $manager->create(NotificationSenderFaker::make()->parameters());
         $this->assertEquals(1, $result->ok());
 
         $resource = $result->getResource();
@@ -45,7 +45,7 @@ class NotificationSenderTest extends BaseTest
     public function testRender()
     {
         $manager = new NotificationSenderManager();
-        $result  = $manager->create(NotificationSenderFaker::make()->parameters());
+        $result = $manager->create(NotificationSenderFaker::make()->parameters());
         $this->assertEquals(1, $result->ok());
         $resource = $result->getResource();
 

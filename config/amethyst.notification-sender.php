@@ -45,11 +45,11 @@ return [
     'http' => [
         'admin' => [
             'notification-sender' => [
-                'enabled'     => true,
-                'controller'  => Railken\Amethyst\Http\Controllers\Admin\NotificationSendersController::class,
-                'router'      => [
-                    'as'        => 'notification-sender.',
-                    'prefix'    => '/notification-senders',
+                'enabled'    => true,
+                'controller' => Railken\Amethyst\Http\Controllers\Admin\NotificationSendersController::class,
+                'router'     => [
+                    'as'     => 'notification-sender.',
+                    'prefix' => '/notification-senders',
                 ],
             ],
         ],

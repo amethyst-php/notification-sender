@@ -36,8 +36,8 @@ class SendNotification implements ShouldQueue
     public function __construct(NotificationSender $notification, array $data = [], AgentContract $agent = null)
     {
         $this->notification = $notification;
-        $this->data         = $data;
-        $this->agent        = $agent;
+        $this->data = $data;
+        $this->agent = $agent;
     }
 
     /**
@@ -45,7 +45,7 @@ class SendNotification implements ShouldQueue
      */
     public function handle()
     {
-        $data         = $this->data;
+        $data = $this->data;
         $notification = $this->notification;
 
         $esm = new NotificationSenderManager();
@@ -57,12 +57,12 @@ class SendNotification implements ShouldQueue
             return event(new NotificationFailed($notification, $result->getErrors()[0], $this->agent));
         }
 
-        $data   = $result->getResource();
+        $data = $result->getResource();
         $result = $esm->render($notification->data_builder, [
-            'targets'      => $notification->targets,
-            'title'        => $notification->title,
-            'message'      => $notification->message,
-            'options'      => $notification->options,
+            'targets' => $notification->targets,
+            'title'   => $notification->title,
+            'message' => $notification->message,
+            'options' => $notification->options,
         ], $data);
 
         $bag = new Bag($result->getResource());

@@ -104,10 +104,10 @@ class NotificationSendersController extends RestManagerController
         $resource = $result->getResource();
 
         return $this->success(['resource' => [
-            'title'    => base64_encode($resource['title']),
-            'message'  => base64_encode($resource['message']),
-            'targets'  => strval($request->input('targets')),
-            'options'  => base64_encode($resource['options']),
+            'title'   => base64_encode($resource['title']),
+            'message' => base64_encode($resource['message']),
+            'targets' => strval($request->input('targets')),
+            'options' => base64_encode($resource['options']),
         ]]);
     }
 }
