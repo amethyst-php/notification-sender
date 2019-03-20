@@ -23,7 +23,8 @@ class NotificationSenderSchema extends Schema
             Attributes\LongTextAttribute::make('description'),
             Attributes\TextAttribute::make('title'),
             Attributes\LongTextAttribute::make('message'),
-            Attributes\YamlAttribute::make('targets'),
+            Attributes\YamlAttribute::make('targets')
+                ->setRequired(true),
             Attributes\YamlAttribute::make('options'),
             Attributes\BelongsToAttribute::make('data_builder_id')
                 ->setRelationName('data_builder')
