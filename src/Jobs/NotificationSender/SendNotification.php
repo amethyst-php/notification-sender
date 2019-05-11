@@ -20,7 +20,10 @@ use Symfony\Component\Yaml\Yaml;
 
 class SendNotification implements ShouldQueue
 {
-    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
+    use Dispatchable;
+    use InteractsWithQueue;
+    use Queueable;
+    use SerializesModels;
 
     protected $notification;
     protected $data;
