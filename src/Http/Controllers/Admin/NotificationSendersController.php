@@ -25,14 +25,12 @@ class NotificationSendersController extends RestManagerController
     public $class = NotificationSenderManager::class;
 
     /**
-     * Generate.
-     *
      * @param int                      $id
      * @param \Illuminate\Http\Request $request
      *
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function send(int $id, Request $request)
+    public function execute(int $id, Request $request)
     {
         /** @var \Railken\Amethyst\Managers\NotificationSenderManager */
         $manager = $this->manager;
