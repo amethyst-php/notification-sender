@@ -42,7 +42,7 @@ class NotificationSendersController extends RestManagerController
             return $this->response('', Response::HTTP_NOT_FOUND);
         }
 
-        $result = $manager->send($notification, (array) $request->input('data'));
+        $result = $manager->execute($notification, (array) $request->input('data'));
 
         if (!$result->ok()) {
             return $this->error(['errors' => $result->getSimpleErrors()]);

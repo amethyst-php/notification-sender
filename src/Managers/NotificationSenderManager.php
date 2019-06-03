@@ -30,7 +30,7 @@ class NotificationSenderManager extends Manager
      *
      * @return \Railken\Lem\Contracts\ResultContract
      */
-    public function send(NotificationSender $notification, array $data = [])
+    public function execute(NotificationSender $notification, array $data = [])
     {
         $result = (new DataBuilderManager())->validateRaw($notification->data_builder, $data);
 
