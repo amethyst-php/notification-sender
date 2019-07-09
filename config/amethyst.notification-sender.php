@@ -9,7 +9,7 @@ return [
     | Here you can change class of the notification that will be used
     |
     */
-    'notification-class' => Railken\Amethyst\Notifications\BasicNotification::class,
+    'notification-class' => Amethyst\Notifications\BasicNotification::class,
 
     /*
     |--------------------------------------------------------------------------
@@ -23,14 +23,14 @@ return [
         'notification-sender' => [
             'table'      => 'amethyst_notification_senders',
             'comment'    => 'NotificationSender',
-            'model'      => Railken\Amethyst\Models\NotificationSender::class,
-            'schema'     => Railken\Amethyst\Schemas\NotificationSenderSchema::class,
-            'repository' => Railken\Amethyst\Repositories\NotificationSenderRepository::class,
-            'serializer' => Railken\Amethyst\Serializers\NotificationSenderSerializer::class,
-            'validator'  => Railken\Amethyst\Validators\NotificationSenderValidator::class,
-            'authorizer' => Railken\Amethyst\Authorizers\NotificationSenderAuthorizer::class,
-            'faker'      => Railken\Amethyst\Fakers\NotificationSenderFaker::class,
-            'manager'    => Railken\Amethyst\Managers\NotificationSenderManager::class,
+            'model'      => Amethyst\Models\NotificationSender::class,
+            'schema'     => Amethyst\Schemas\NotificationSenderSchema::class,
+            'repository' => Amethyst\Repositories\NotificationSenderRepository::class,
+            'serializer' => Amethyst\Serializers\NotificationSenderSerializer::class,
+            'validator'  => Amethyst\Validators\NotificationSenderValidator::class,
+            'authorizer' => Amethyst\Authorizers\NotificationSenderAuthorizer::class,
+            'faker'      => Amethyst\Fakers\NotificationSenderFaker::class,
+            'manager'    => Amethyst\Managers\NotificationSenderManager::class,
         ],
     ],
 
@@ -46,7 +46,7 @@ return [
         'admin' => [
             'notification-sender' => [
                 'enabled'    => true,
-                'controller' => Railken\Amethyst\Http\Controllers\Admin\NotificationSendersController::class,
+                'controller' => Amethyst\Http\Controllers\Admin\NotificationSendersController::class,
                 'router'     => [
                     'as'     => 'notification-sender.',
                     'prefix' => '/notification-senders',

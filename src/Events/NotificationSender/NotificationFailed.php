@@ -1,10 +1,10 @@
 <?php
 
-namespace Railken\Amethyst\Events\NotificationSender;
+namespace Amethyst\Events\NotificationSender;
 
 use Exception;
 use Illuminate\Queue\SerializesModels;
-use Railken\Amethyst\Models\NotificationSender;
+use Amethyst\Models\NotificationSender;
 use Railken\Lem\Contracts\AgentContract;
 
 class NotificationFailed
@@ -18,7 +18,7 @@ class NotificationFailed
     /**
      * Create a new event instance.
      *
-     * @param \Railken\Amethyst\Models\NotificationSender $notification
+     * @param \Amethyst\Models\NotificationSender $notification
      * @param \Exception                                  $exception
      * @param \Railken\Lem\Contracts\AgentContract        $agent
      */

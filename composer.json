@@ -1,13 +1,13 @@
 {
-    "name": "railken/amethyst-notification-sender",
+    "name": "amethyst/notification-sender",
     "keywords": ["laravel", "amethyst", "amethyst-notification-sender", "notification-sender"],
     "license": "MIT",
     "require": {
         "php": ">=7.1",
-        "railken/amethyst-common": "0.1.*",
-        "railken/amethyst-data-builder": "0.1.*",
-        "railken/amethyst-user": "0.1.*",
-        "railken/amethyst-notification": "0.1.*",
+        "amethyst/common": "0.1.*",
+        "amethyst/data-builder": "0.1.*",
+        "amethyst/user": "0.1.*",
+        "amethyst/notification": "0.1.*",
         "railken/template": "^1.0"
     },
     "require-dev": {
@@ -16,18 +16,18 @@
     },
     "autoload": {
         "psr-4" : {
-            "Railken\\Amethyst\\" : "src/"
+            "Amethyst\\" : "src/"
         }
     },
     "autoload-dev": {
         "psr-4": { 
-            "Railken\\Amethyst\\Tests\\": "tests/" 
+            "Amethyst\\Tests\\": "tests/" 
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Railken\\Amethyst\\Providers\\NotificationSenderServiceProvider"
+                "Amethyst\\Providers\\NotificationSenderServiceProvider"
             ]
         }
     }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Railken\Amethyst\Tests;
+namespace Amethyst\Tests;
 
 use Illuminate\Support\Facades\Config;
 
@@ -16,14 +16,14 @@ abstract class BaseTest extends \Orchestra\Testbench\TestCase
         $this->artisan('migrate:fresh');
         $this->artisan('amethyst:user:install');
 
-        Config::set('amethyst.notification.data.notification.user', \Railken\Amethyst\Models\User::class);
+        Config::set('amethyst.notification.data.notification.user', \Amethyst\Models\User::class);
     }
 
     protected function getPackageProviders($app)
     {
         return [
-            \Railken\Amethyst\Providers\NotificationSenderServiceProvider::class,
-            \Railken\Amethyst\Providers\UserServiceProvider::class,
+            \Amethyst\Providers\NotificationSenderServiceProvider::class,
+            \Amethyst\Providers\UserServiceProvider::class,
         ];
     }
 }

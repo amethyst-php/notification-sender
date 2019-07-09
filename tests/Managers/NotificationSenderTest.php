@@ -1,11 +1,11 @@
 <?php
 
-namespace Railken\Amethyst\Tests\Managers;
+namespace Amethyst\Tests\Managers;
 
-use Railken\Amethyst\Fakers\NotificationSenderFaker;
-use Railken\Amethyst\Managers\DataBuilderManager;
-use Railken\Amethyst\Managers\NotificationSenderManager;
-use Railken\Amethyst\Tests\BaseTest;
+use Amethyst\Fakers\NotificationSenderFaker;
+use Amethyst\Managers\DataBuilderManager;
+use Amethyst\Managers\NotificationSenderManager;
+use Amethyst\Tests\BaseTest;
 use Railken\Lem\Support\Testing\TestableBaseTrait;
 
 class NotificationSenderTest extends BaseTest

@@ -1,17 +1,17 @@
 <?php
 
-namespace Railken\Amethyst\DataBuilders;
+namespace Amethyst\DataBuilders;
 
 use Closure;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
-use Railken\Amethyst\Contracts\DataBuilderContract;
-use Railken\Amethyst\Managers\EmailSenderManager;
+use Amethyst\Contracts\DataBuilderContract;
+use Amethyst\Managers\EmailSenderManager;
 
 class EmailSenderDataBuilder implements DataBuilderContract
 {
     /**
-     * @var \Railken\Amethyst\Managers\EmailSenderManager
+     * @var \Amethyst\Managers\EmailSenderManager
      */
     protected $manager;
 

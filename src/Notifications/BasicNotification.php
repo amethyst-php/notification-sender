@@ -1,6 +1,6 @@
 <?php
 
-namespace Railken\Amethyst\Notifications;
+namespace Amethyst\Notifications;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;

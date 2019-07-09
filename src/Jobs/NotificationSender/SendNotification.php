@@ -1,6 +1,6 @@
 <?php
 
-namespace Railken\Amethyst\Jobs\NotificationSender;
+namespace Amethyst\Jobs\NotificationSender;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -9,11 +9,11 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Notification;
-use Railken\Amethyst\Events\NotificationSender\NotificationFailed;
-use Railken\Amethyst\Events\NotificationSender\NotificationSent;
-use Railken\Amethyst\Managers\DataBuilderManager;
-use Railken\Amethyst\Managers\NotificationSenderManager;
-use Railken\Amethyst\Models\NotificationSender;
+use Amethyst\Events\NotificationSender\NotificationFailed;
+use Amethyst\Events\NotificationSender\NotificationSent;
+use Amethyst\Managers\DataBuilderManager;
+use Amethyst\Managers\NotificationSenderManager;
+use Amethyst\Models\NotificationSender;
 use Railken\Bag;
 use Railken\Lem\Contracts\AgentContract;
 use Symfony\Component\Yaml\Yaml;
