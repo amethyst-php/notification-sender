@@ -2,9 +2,9 @@
 
 namespace Amethyst\Events\NotificationSender;
 
+use Amethyst\Models\NotificationSender;
 use Exception;
 use Illuminate\Queue\SerializesModels;
-use Amethyst\Models\NotificationSender;
 use Railken\Lem\Contracts\AgentContract;
 
 class NotificationFailed
@@ -18,9 +18,9 @@ class NotificationFailed
     /**
      * Create a new event instance.
      *
-     * @param \Amethyst\Models\NotificationSender $notification
-     * @param \Exception                                  $exception
-     * @param \Railken\Lem\Contracts\AgentContract        $agent
+     * @param \Amethyst\Models\NotificationSender  $notification
+     * @param \Exception                           $exception
+     * @param \Railken\Lem\Contracts\AgentContract $agent
      */
     public function __construct(NotificationSender $notification, Exception $exception, AgentContract $agent = null)
     {

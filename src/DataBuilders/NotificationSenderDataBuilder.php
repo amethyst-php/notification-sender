@@ -2,11 +2,11 @@
 
 namespace Amethyst\DataBuilders;
 
+use Amethyst\Contracts\DataBuilderContract;
+use Amethyst\Managers\EmailSenderManager;
 use Closure;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
-use Amethyst\Contracts\DataBuilderContract;
-use Amethyst\Managers\EmailSenderManager;
 
 class EmailSenderDataBuilder implements DataBuilderContract
 {

@@ -2,6 +2,11 @@
 
 namespace Amethyst\Jobs\NotificationSender;
 
+use Amethyst\Events\NotificationSender\NotificationFailed;
+use Amethyst\Events\NotificationSender\NotificationSent;
+use Amethyst\Managers\DataBuilderManager;
+use Amethyst\Managers\NotificationSenderManager;
+use Amethyst\Models\NotificationSender;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
@@ -9,11 +14,6 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Notification;
-use Amethyst\Events\NotificationSender\NotificationFailed;
-use Amethyst\Events\NotificationSender\NotificationSent;
-use Amethyst\Managers\DataBuilderManager;
-use Amethyst\Managers\NotificationSenderManager;
-use Amethyst\Models\NotificationSender;
 use Railken\Bag;
 use Railken\Lem\Contracts\AgentContract;
 use Symfony\Component\Yaml\Yaml;

@@ -2,8 +2,8 @@
 
 namespace Amethyst\Events\NotificationSender;
 
-use Illuminate\Queue\SerializesModels;
 use Amethyst\Models\NotificationSender;
+use Illuminate\Queue\SerializesModels;
 use Railken\Lem\Contracts\AgentContract;
 
 class NotificationSent
@@ -16,8 +16,8 @@ class NotificationSent
     /**
      * Create a new event instance.
      *
-     * @param \Amethyst\Models\NotificationSender $notification
-     * @param \Railken\Lem\Contracts\AgentContract        $agent
+     * @param \Amethyst\Models\NotificationSender  $notification
+     * @param \Railken\Lem\Contracts\AgentContract $agent
      */
     public function __construct(NotificationSender $notification, AgentContract $agent = null)
     {
