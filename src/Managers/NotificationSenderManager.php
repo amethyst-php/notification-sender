@@ -13,6 +13,14 @@ use Railken\Lem\Manager;
 use Railken\Lem\Result;
 use Railken\Template\Generators;
 
+/**
+ * @method \Amethyst\Models\NotificationSender newEntity()
+ * @method \Amethyst\Schemas\NotificationSenderSchema getSchema()
+ * @method \Amethyst\Repositories\NotificationSenderRepository getRepository()
+ * @method \Amethyst\Serializers\NotificationSenderSerializer getSerializer()
+ * @method \Amethyst\Validators\NotificationSenderValidator getValidator()
+ * @method \Amethyst\Authorizers\NotificationSenderAuthorizer getAuthorizer()
+ */
 class NotificationSenderManager extends Manager
 {
     use ConfigurableManager;
