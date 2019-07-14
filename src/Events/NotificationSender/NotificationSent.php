@@ -10,7 +10,7 @@ class NotificationSent
 {
     use SerializesModels;
 
-    public $notification;
+    public $email;
     public $agent;
 
     /**

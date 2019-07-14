@@ -39,7 +39,7 @@ class NotificationSenderTest extends BaseTest
         $this->assertEquals(1, $result->ok());
 
         $resource = $result->getResource();
-        $response = $this->callAndTest('POST', route('admin.notification-sender.send', ['id' => $resource->id]), ['data' => ['name' => $resource->name]], 200);
+        $response = $this->callAndTest('POST', route('admin.notification-sender.execute', ['id' => $resource->id]), ['data' => ['name' => $resource->name]], 200);
     }
 
     public function testRender()

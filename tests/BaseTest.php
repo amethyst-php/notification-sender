@@ -16,14 +16,14 @@ abstract class BaseTest extends \Orchestra\Testbench\TestCase
         $this->artisan('migrate:fresh');
         $this->artisan('amethyst:user:install');
 
-        Config::set('amethyst.notification.data.notification.user', \Amethyst\Models\User::class);
+        Config::set('amethyst.notification.data.notification.user', Models\Foo::class);
     }
 
     protected function getPackageProviders($app)
     {
         return [
             \Amethyst\Providers\NotificationSenderServiceProvider::class,
-            \Amethyst\Providers\UserServiceProvider::class,
+            \Amethyst\Providers\FooServiceProvider::class
         ];
     }
 }

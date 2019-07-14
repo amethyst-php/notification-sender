@@ -28,13 +28,14 @@ class NotificationSenderTest extends BaseTest
 
     public function testSend()
     {
+        /** @var \Amethyst\Managers\NotificationSenderManager */
         $manager = $this->getManager();
 
         $result = $manager->create(NotificationSenderFaker::make()->parameters());
         $this->assertEquals(1, $result->ok());
         $resource = $result->getResource();
 
-        $result = $manager->send($resource, [
+        $result = $manager->execute($resource, [
             'name' => 'Bar',
         ]);
 
@@ -43,6 +44,7 @@ class NotificationSenderTest extends BaseTest
 
     public function testRender()
     {
+        /** @var \Amethyst\Managers\NotificationSenderManager */
         $manager = $this->getManager();
 
         $result = $manager->create(NotificationSenderFaker::make()->parameters());

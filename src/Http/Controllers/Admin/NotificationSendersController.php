@@ -60,7 +60,7 @@ class NotificationSendersController extends RestManagerController
      */
     public function render(Request $request)
     {
-        /** @var \Amethyst\Managers\EmailSenderManager */
+        /** @var \Amethyst\Managers\NotificationSenderManager */
         $manager = $this->manager;
 
         $dbm = (new DataBuilderManager());

@@ -11,7 +11,7 @@ class NotificationFailed
 {
     use SerializesModels;
 
-    public $notification;
+    public $email;
     public $error;
     public $agent;
 
