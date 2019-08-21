@@ -23,7 +23,7 @@ abstract class BaseTest extends \Orchestra\Testbench\TestCase
     {
         return [
             \Amethyst\Providers\NotificationSenderServiceProvider::class,
-            \Amethyst\Providers\FooServiceProvider::class
+            \Amethyst\Providers\FooServiceProvider::class,
         ];
     }
 }

@@ -1,10 +1,11 @@
 <?php
+
 namespace Amethyst\Tests\Models;
 
-use Illuminate\Notifications\Notifiable;
 use Amethyst\Models\Foo as Model;
+use Illuminate\Notifications\Notifiable;
 
 class Foo extends Model
 {
-	use Notifiable;
+    use Notifiable;
 }
